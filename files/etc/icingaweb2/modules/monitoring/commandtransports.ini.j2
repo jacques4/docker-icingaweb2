@@ -1,0 +1,19 @@
+[icinga-01]
+transport = "api"
+host = "{{ API_HOST }}"
+port = "{{ API_PORT }}"
+username = "{{ API_USERNAME }}"
+password = "{{ API_PASSWORD}}"
+
+
+#[mima-icinga-01]
+#transport = remote
+#path = /var/run/icinga2/cmd/icinga2.cmd
+#host = mima-icinga-01.mimacom.local
+#resource = mima-icinga-01.mimacom.local-icinga
+#
+#[mima-icinga-02]
+#transport = remote
+#path = /var/run/icinga2/cmd/icinga2.cmd
+#host = mima-icinga-02.mimacom.local
+#resource = mima-icinga-02.mimacom.local-icinga

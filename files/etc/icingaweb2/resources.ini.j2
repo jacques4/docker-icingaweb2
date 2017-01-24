@@ -1,0 +1,18 @@
+[icingaweb_ldap]
+type = "ldap"
+hostname = "{{ LDAP_DOMAIN }}"
+port = "{{ LDAP_PORT }}"
+encryption = "none"
+root_dn = "{{ LDAP_ROOT_DN }}"
+bind_dn = "{{ LDAP_BIND_DN }}"
+bind_pw = "{{ LDAP_BIND_PW }}"
+
+[icinga_ido]
+type = "db"
+db = "mysql"
+host = "{{ IDO_HOST }}"
+port = "{{ IDO_PORT }}"
+dbname = "{{ IDO_DBNAME }}"
+username = "{{ IDO_USERNAME }}"
+password = "{{ IDO_PASSWORD }}"
+charset = "latin1"
