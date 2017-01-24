@@ -59,6 +59,7 @@ RUN icingacli module enable graphite
 
 # copy entrypoint
 COPY entrypoint.sh /entrypoint.sh
+RUN chmod 755 /entrypoint.sh
 
 
 # start script
