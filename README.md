@@ -69,3 +69,8 @@ web:
     GRAPHITE_METRIC_PREFIX: icinga
     GRAPHITE_BASE_URL: https://graphite.example.invalid/render?
 ```
+
+
+## Modules
+### Icinga Director
+Make sure you have set up your Icinga2 nodes correctly in order to use Icinga Director. See https://github.com/Icinga/icingaweb2-module-director/blob/master/doc/04-Getting-started.md

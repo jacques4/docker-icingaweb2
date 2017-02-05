@@ -5,11 +5,12 @@ FROM php:5.6-apache
 
 # set environment variables
 ENV ICINGAWEB_VERSION 2.4.1
+ENV ICINGADIRECTOR_VERSION 1.3.0
 #ENV ICINGAWEB_SETUP_TOKEN docker
 
 
 # install dependencies
-RUN apt-get update && apt-get install -y libicu-dev libldap2-dev libpng12-dev libpq-dev libjpeg-dev php5-imagick python-pip git && rm -rf /var/lib/apt/lists/* \
+RUN apt-get update && apt-get install -y libicu-dev libldap2-dev libpng12-dev libpq-dev libjpeg-dev php5-imagick python-pip git php5-curl && rm -rf /var/lib/apt/lists/* \
   && pip install j2cli \
 	&& docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu \
 	&& docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
@@ -24,6 +25,13 @@ RUN curl -o /tmp/icingaweb2.tar.gz -SL "https://github.com/Icinga/icingaweb2/arc
 
 # download icingaweb2 module: graphite
 RUN git clone https://github.com/findmypast/icingaweb2-module-graphite.git /usr/share/icingaweb2/modules/graphite
+
+# download and extract icingaweb2 module: icinga director
+RUN curl -o /tmp/icingaweb2-module-director.tar.gz -SL "https://github.com/Icinga/icingaweb2-module-director/archive/v${ICINGADIRECTOR_VERSION}.tar.gz" \
+  && mkdir /usr/share/icingaweb2/modules/director \
+  && tar xf /tmp/icingaweb2-module-director.tar.gz --strip-components=1 -C /usr/share/icingaweb2/modules/director \
+  && rm -f /tmp/icingaweb2-module-director.tar.gz
+  
 
 
 # enable apache vHost
@@ -55,6 +63,7 @@ COPY files/etc/icingaweb2/modules/graphite/config.ini.j2 /etc/icingaweb2/modules
 # enable modules
 RUN icingacli module enable monitoring
 RUN icingacli module enable graphite
+RUN icingacli module enable director
 
 
 # copy entrypoint
