@@ -22,4 +22,8 @@ chgrp -R www-data "$config"
 find "$config" -type d -exec chmod g+ws {} \;
 find "$config" -type f -exec chmod g+w {} \;
 
+# run icinga2 director migration, see: 
+# https://github.com/Icinga/icingaweb2-module-director/blob/master/doc/03-Automation.md
+icingacli director migration run --verbose
+
 exec "$@"

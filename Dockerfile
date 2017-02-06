@@ -58,6 +58,9 @@ COPY files/etc/icingaweb2/modules/monitoring/config.ini.j2 /etc/icingaweb2/modul
 # configure icingaweb2 module: graphite
 COPY files/etc/icingaweb2/modules/graphite/config.ini.j2 /etc/icingaweb2/modules/graphite/
 
+# configure icingaweb2 module: director
+COPY files/etc/icingaweb2/modules/director/config.ini.j2 /etc/icingaweb2/modules/director/
+
 
 
 # enable modules
