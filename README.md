@@ -19,11 +19,16 @@ Please set all these environment variables, otherwise the docker container will 
  * *LDAP_ROOT_DN*: root distinguished name of your LDAP server
  * *LDAP_BIND_DN*: distinguished name of the bind user to authenticate against your LDAP server
  * *LDAP_BIND_PW*: password for bind user
- * *IDO_HOST*: backend host (MySQL/MariaDB)
- * *IDO_PORT*: backend host port (e.g. 3306)
- * *IDO_DBNAME*: backend database name
- * *IDO_USERNAME*: username to authenticate against your MySQL server
- * *IDO_PASSWORD*: password to authenticate against your MySQL server
+ * *ICINGA_IDO_HOST*: backend host (MySQL/MariaDB)
+ * *ICINGA_IDO_PORT*: backend host port (e.g. 3306)
+ * *ICINGA_IDO_DBNAME*: backend database name
+ * *ICINGA_IDO_USERNAME*: username to authenticate against your MySQL server
+ * *ICINGA_IDO_PASSWORD*: password to authenticate against your MySQL server
+ * *DIRECTOR_IDO_HOST*: backend host for director (MySQL/MariaDB)
+ * *DIRECTOR_IDO_PORT*: backend host port for director (e.g. 3306)
+ * *DIRECTOR_IDO_DBNAME*: backend database name for director
+ * *DIRECTOR_IDO_USERNAME*: username to authenticate against your MySQL server for director
+ * *DIRECTORIDO_PASSWORD*: password to authenticate against your MySQL server for director
  * *API_HOST*: Icinga2 host, on which API module is enabled
  * *API_PORT*: API port, e.g. 5665
  * *API_USERNAME*: username to authenticate against the Icinga2 API
@@ -57,11 +62,16 @@ web:
     LDAP_ROOT_DN: DC=example,DC=invalid
     LDAP_BIND_DN: CN=binduser,OU=users,DC=example,DC=invalid
     LDAP_BIND_PW: someRandomBindPassword
-    IDO_HOST: my-mysql-server.example.invalid
-    IDO_PORT: 3306
-    IDO_DBNAME: icinga
-    IDO_USERNAME: icinga
-    IDO_PASSWORD: someRandomMysqlPassword
+    ICINGA_IDO_HOST: my-mysql-server.example.invalid
+    ICINGA_IDO_PORT: 3306
+    ICINGA_IDO_DBNAME: icinga
+    ICINGA_IDO_USERNAME: icinga
+    ICINGA_IDO_PASSWORD: someRandomMysqlPassword
+    DIRECTOR_IDO_HOST: my-mysql-server.example.invalid
+    DIRECTOR_IDO_PORT: 3306
+    DIRECTOR_IDO_DBNAME: director
+    DIRECTOR_IDO_USERNAME: director
+    DIRECTOR_IDO_PASSWORD: someRandomMysqlPassword
     API_HOST: my-icinga2-host.example.invalid
     API_PORT: 5665
     API_USERNAME: root
